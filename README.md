@@ -123,24 +123,6 @@ matters more for some AWS accounts than others.
 
 ---
 
-## Free Tier Notes
-`t2.micro` is AWS's standard free-tier-eligible instance type, but
-whether it's actually free depends on your **AWS account's creation
-date** — this changed on July 15, 2025:
-- **Accounts created before July 15, 2025**: 750 hours/month of
-  `t2.micro` free for the first 12 months (enough to run one
-  instance 24/7 at no cost).
-- **Accounts created on or after July 15, 2025**: no per-service
-  12-month EC2 allowance. Instead you get a one-time $200 credit
-  usable over 6 months, then standard billing applies (~$8–9/month
-  for `t2.micro` if left running continuously).
-
-This is an AWS account-level policy, not something the Terraform
-code controls. Either way, running `terraform destroy` right after
-you're done testing keeps actual cost close to zero — a few minutes
-or hours of a `t2.micro` costs a fraction of a cent even outside the
-free tier.
-
 ## Notes
 - `.gitignore` deliberately excludes `.terraform/` and `*.tfstate` —
   state files can contain resource details and should never be
